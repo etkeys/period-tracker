@@ -1,12 +1,56 @@
 {% extends "base.html" %}
+{% set class_invalid_input="w3-input w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-red" %}
+{% set class_invalid_message="w3-margin-left w3-text-red" %}
+{% set class_input="w3-input" %}
 {% block content %}
-<div>
-    <div>
-        <!-- <img src="default.jpg"/> -->
-        <div>
-            <h2>Username</h2>
-            <p>{{ current_user.email }}</p>
-        </div>
+<div class="w3-container w3-margin-top w3-row">
+    <div class="w3-col w3-third">&nbsp;</div>
+    <div class="w3-col w3-third w3-card-2 w3-center">
+        <img id="account-profile-image" class="w3-circle" alt="profile image" src="{{ user_image_file }}"/>
+        <form method="POST" action="" enctype="multipart/form-data" class="w3-container w3-margin-top">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <legend>Account information</legend>
+                <p>
+                    {{ form.display_name.label(class="w3-left w3-text-gray") }}
+                    {% if form.display_name.errors %}
+                        {{ form.display_name(class=class_invalid_input) }}
+                        <div class="{{ class_invalid_message }}">
+                            {% for error in form.display_name.errors %}
+                            {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.display_name(class=class_input) }}
+                    {% endif %}
+                </p>
+                <p>
+                    {{ form.email.label(class="w3-left w3-text-gray") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class=class_invalid_input) }}
+                        <div class="{{ class_invalid_message }}">
+                            {% for error in form.email.errors %}
+                            {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class=class_input) }}
+                    {% endif %}
+                </p>
+                <p>
+                    {{ form.picture.label(class="w3-left w3-text-gray") }}
+                    {{ form.picture(class=class_input) }}
+                    {% if form.picture.errors %}
+                        {% for error in form.picture.errors %}
+                        <span class="w3-text-red">{{ error }}</span></br>
+                        {% endfor %}
+                    {% endif %}
+                </p>
+            </fieldset>
+            <p>
+                {{ form.submit(class="w3-btn w3-blue-grey") }}
+            </p>
+        </form>
     </div>
 </div>
 {% endblock content %}

@@ -1,3 +1,5 @@
 env/
 **/__pycache__
 src/instance
+src/App/static/profile_images/*
+!src/App/static/profile_images/default.png

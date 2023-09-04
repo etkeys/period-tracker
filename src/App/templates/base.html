@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}"> 
         {% if title %}
             <title>Period Tracker - {{ title }}</title>
         {% else %}
@@ -29,5 +30,10 @@
         {% endwith %}
         {% block content %}{% endblock %}
         </main>
+        <footer>
+            <div class="w3-bar w3-gray">
+                <a href="{{ url_for('attribution') }}" class="w3-bar-item w3-right">Attributions</a>
+            </div>
+        </footer>
     </body>
 </html>
