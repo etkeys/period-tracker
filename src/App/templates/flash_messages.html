@@ -1,8 +1,9 @@
 {% set class_alert_error = "w3-panel w3-leftbar w3-border-red w3-pale-red" %}
-{% set class_alert_info = "w3-panel w3-leftbar w3-border-blue w3-pale-blue" %}
+{% set class_alert_info = "w3-panel w3-leftbar w3-border-blue w3-pale-blue " %}
 {% set class_alert_success = "w3-panel w3-leftbar w3-border-green w3-pale-green" %}
 {% set class_alert_warn = "w3-panel w3-leftbar w3-border-yellow w3-pale-yellow" %}
 
+<div class="flash-message">
 {% if messages %}
     {% for category, message in messages %}
         {% if category == 'error' %}
@@ -18,3 +19,4 @@
         </div>
     {% endfor %}
 {% endif %}
+</div>

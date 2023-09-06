@@ -16,3 +16,8 @@ footer {
     height: auto;
     max-width: 20px;
 }
+
+.flash-message {
+    margin-left: 30%;
+    width: 40%;
+}
