@@ -1,28 +1,27 @@
+{% set app_name = "Period Tracker" %}
 <!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}"> 
-        {% if title %}
+
+        <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+
+        <!-- {% if title %}
             <title>Period Tracker - {{ title }}</title>
         {% else %}
             <title>Period Tracker</title>
+        {% endif %} -->
+        {% if title %}
+            <title>{{ app_name }} - {{ title }}</title>
+        {% else %}
+            <title>{{ app_name }}</title>
         {% endif %}
     </head>
     <body>
         <header>
-            <nav class="w3-bar w3-teal">
-                <div class="w3-bar-item"><b>Period Tracker</b></div>
-                <a href="{{ url_for('home') }}" class="w3-bar-item w3-button">Home</a>
-
-                {% if current_user.is_authenticated %}
-                <a href="{{ url_for('logout') }}" class="w3-bar-item w3-button w3-right">Logout</a>
-                <a href="{{ url_for('account') }}" class="w3-bar-item w3-button w3-right">Account</a>
-                {% else %}
-                <a href="{{ url_for('register') }}" class="w3-bar-item w3-button w3-right">Sign up</a>
-                <a href="{{ url_for('login') }}" class="w3-bar-item w3-button w3-right">Login</a>
-                {% endif %}
-            </nav>
+            {% include "navbar.html" %}
         </header>
         <main class="w3-container">
         {% with messages = get_flashed_messages(with_categories=true) %}

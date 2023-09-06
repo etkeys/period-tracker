@@ -10,3 +10,9 @@ footer {
     max-height: 20em;
     max-width: 20em;
 }
+
+#navbar-profile-image {
+    /* max-height: 25px; */
+    height: auto;
+    max-width: 20px;
+}
