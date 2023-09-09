@@ -20,7 +20,7 @@ def save_picture(form_picture):
     # form_picture.save(picture_path)
 
     # scale down large images
-    output_size = (320, 320)
+    output_size = (240, 240)
     i = Image.open(form_picture)
     i.thumbnail = output_size
 
