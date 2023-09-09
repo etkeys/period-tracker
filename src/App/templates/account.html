@@ -3,9 +3,9 @@
 {% set class_invalid_message="w3-margin-left w3-text-red" %}
 {% set class_input="w3-input" %}
 {% block content %}
-<div class="w3-container w3-margin-top w3-row">
-    <div class="w3-col w3-third">&nbsp;</div>
-    <div class="w3-col w3-third w3-card-2 w3-center">
+<div class="w3-margin-top w3-row">
+    <div class="w3-col w3-quarter">&nbsp;</div>
+    <div class="w3-col s12 m6 l6 w3-card-2 w3-center">
         <img id="account-profile-image" class="w3-circle" alt="profile image" src="{{ user_image_file }}"/>
         <form method="POST" action="" enctype="multipart/form-data" class="w3-container w3-margin-top">
             {{ form.hidden_tag() }}
