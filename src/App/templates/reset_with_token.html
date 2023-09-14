@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% set class_invalid_input="w3-input w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-red" %}
+{% set class_invalid_message="w3-margin-left w3-text-red" %}
+{% set class_input="w3-input" %}
+{% block content %}
+<div class="w3-row w3-margin-top">
+    <div class="w3-col w3-quarter">&nbsp;</div>
+    <div class="w3-col s12 m6 l6">
+        <form method="POST" action="" class="w3-container">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <legend>Reset password</legend>
+                <p>
+                    {{ form.password.label(class="w3-text-gray") }}
+                    {% if form.password.errors %}
+                        {{ form.password(class=class_invalid_input) }}
+                        <div class="{{ class_invalid_message }}">
+                            {% for error in form.password.errors %}
+                            {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class=class_input) }}
+                    {% endif %}
+                </p>
+                <p>
+                    {{ form.confirm_password.label(class="w3-text-gray") }}
+                    {% if form.confirm_password.errors %}
+                        {{ form.confirm_password(class=class_invalid_input) }}
+                        <div class="{{ class_invalid_message }}">
+                            {% for error in form.confirm_password.errors %}
+                            {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.confirm_password(class=class_input) }}
+                    {% endif %}
+                </p>
+            </fieldset>
+            <p>
+                {{ form.submit(class="w3-btn w3-blue-grey") }}
+            </p>
+        </form>
+    </div>
+</div>
+{% endblock content %}

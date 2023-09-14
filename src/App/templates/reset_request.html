@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 {% set class_invalid_input="w3-input w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-red" %}
 {% set class_invalid_message="w3-margin-left w3-text-red" %}
@@ -9,7 +10,7 @@
         <form method="POST" action="" class="w3-container">
             {{ form.hidden_tag() }}
             <fieldset>
-                <legend>Login to your account</legend>
+                <legend>Reset password</legend>
                 <p>
                     {{ form.email.label(class="w3-text-gray") }}
                     {% if form.email.errors %}
@@ -23,36 +24,11 @@
                         {{ form.email(class=class_input) }}
                     {% endif %}
                 </p>
-                <p>
-                    {{ form.password.label(class="w3-text-gray") }}
-                    {% if form.password.errors %}
-                        {{ form.password(class=class_invalid_input) }}
-                        <div class="{{ class_invalid_message }}">
-                            {% for error in form.password.errors %}
-                            {{ error }}
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.password(class=class_input) }}
-                    {% endif %}
-                </p>
-                <p>
-                    {{ form.remember(class="w3-check")}}
-                    {{ form.remember.label(class="w3-text-gray") }}
-                </p>
             </fieldset>
             <p>
                 {{ form.submit(class="w3-btn w3-blue-grey") }}
             </p>
-            <small class="w3-opacity">
-                <a class="w3-text-blue" href="{{ url_for('reset_request') }}">Forgot password?</a>
-            </small>
         </form>
-        <p class="w3-margin-left">
-            <small class="w3-opacity">
-                Don't have an account? <a class="w3-text-blue" href="{{ url_for('register') }}">Sign up here</a>
-            </small>
-        </p>
     </div>
 </div>
 {% endblock content %}
